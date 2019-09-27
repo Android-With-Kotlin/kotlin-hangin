@@ -7,4 +7,7 @@
     <color name="colorFacebook">#3c5a99</color>
     <color name="colorGoogle">#d34836</color>
     <color name="colorBackTransparent">#80000000</color>
+    <color name="colorTitle">#414141</color>
+    <color name="colorGray">#959595</color>
+    <color name="colorBackSpace">#e1e1ed</color>
 </resources>

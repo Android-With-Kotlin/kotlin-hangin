@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.m7amdelbana.hanginkotlin.view.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackSpace"
+            tools:context=".view.profile.ProfileActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profile_header_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/back_solid_white"
+                android:paddingStart="8dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="40dp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_imageView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/img_avatar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                    android:id="@+id/account_online_imageView"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/ic_online"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_imageView"
+                    app:layout_constraintEnd_toEndOf="@id/profile_imageView" />
+
+            <TextView
+                    android:id="@+id/account_name_textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/gotham_rounded_medium"
+                    android:gravity="center"
+                    android:text="@{viewModel.name}"
+                    android:textColor="@color/colorTitle"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_imageView" />
+
+            <TextView
+                    android:id="@+id/account_status_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/back_toast_gray"
+                    android:fontFamily="@font/gotham_rounded_light"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="@{viewModel.status}"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/account_name_textView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+                android:id="@+id/account_edit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back_solid_primary"
+                android:fontFamily="@font/gotham_rounded_light"
+                android:onClick="@{() -> viewModel.onEdit()}"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="@string/edit_profile"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="@id/profile_header_layout"
+                app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/profile_header_layout" />
+
+        <LinearLayout
+                android:id="@+id/account_email_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/back_solid_white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/account_edit_button">
+
+            <ImageView
+                    android:id="@+id/account_email_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/ic_account_email" />
+
+            <TextView
+                    android:id="@+id/account_email_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/gotham_rounded_light"
+                    android:text="@{viewModel.email}"
+                    android:textColor="@color/colorTitle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/account_phone_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/back_solid_white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/account_email_layout">
+
+            <ImageView
+                    android:id="@+id/account_phone_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/ic_account_phone" />
+
+            <TextView
+                    android:id="@+id/fragment_account_phone_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/gotham_rounded_light"
+                    android:text="@{viewModel.phone}"
+                    android:textColor="@color/colorTitle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/account_city_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/back_solid_white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/account_phone_layout">
+
+            <ImageView
+                    android:id="@+id/account_city_imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/image"
+                    android:src="@drawable/ic_account_city" />
+
+            <TextView
+                    android:id="@+id/account_city_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/gotham_rounded_light"
+                    android:text="@{viewModel.city}"
+                    android:textColor="@color/colorTitle" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

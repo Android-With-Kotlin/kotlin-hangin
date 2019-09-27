@@ -9,6 +9,7 @@ import com.m7amdelbana.hanginkotlin.R
 import com.m7amdelbana.hanginkotlin.utilities.Internet
 import com.m7amdelbana.hanginkotlin.view.auth.LoginActivity
 import com.m7amdelbana.hanginkotlin.view.main.MainActivity
+import com.m7amdelbana.hanginkotlin.view.profile.ProfileActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -17,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
 
     private val runnable: Runnable = Runnable {
         if (!isFinishing) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
             finish()
         }
