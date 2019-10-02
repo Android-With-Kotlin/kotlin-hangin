@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import com.m7amdelbana.hanginkotlin.R
-import com.m7amdelbana.hanginkotlin.utilities.Internet
-import com.m7amdelbana.hanginkotlin.view.auth.LoginActivity
-import com.m7amdelbana.hanginkotlin.view.main.MainActivity
-import com.m7amdelbana.hanginkotlin.view.profile.ProfileActivity
+import com.m7amdelbana.hanginkotlin.util.Internet
+import com.m7amdelbana.hanginkotlin.view.auth.register.RegisterActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -18,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
 
     private val runnable: Runnable = Runnable {
         if (!isFinishing) {
-            val intent = Intent(this, ProfileActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             finish()
         }

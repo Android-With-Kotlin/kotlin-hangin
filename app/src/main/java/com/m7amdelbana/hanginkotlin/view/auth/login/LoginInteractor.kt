@@ -1,4 +1,4 @@
-package com.m7amdelbana.hanginkotlin.view.auth
+package com.m7amdelbana.hanginkotlin.view.auth.login
 
 import android.os.Handler
 

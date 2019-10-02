@@ -15,8 +15,7 @@ class LoadingDialog(context: Context) {
     private val dialog: Dialog?
     private val TAG = this.javaClass.name
 
-    val isShowing: Boolean
-        get() = dialog!!.isShowing
+    val isShowing: Boolean get() = dialog!!.isShowing
 
     init {
         dialog = Dialog(context)
@@ -31,7 +30,6 @@ class LoadingDialog(context: Context) {
         } catch (e: Exception) {
             Log.v(TAG, Objects.requireNonNull(e.message))
         }
-
     }
 
     fun hide() {

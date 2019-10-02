@@ -1,4 +1,4 @@
-package com.m7amdelbana.hanginkotlin.view.auth
+package com.m7amdelbana.hanginkotlin.view.auth.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,10 @@ import com.m7amdelbana.hanginkotlin.view.main.MainActivity
 
 class LoginActivity : AppCompatActivity(), LoginView {
 
-    private val presenter = LoginPresenter(this, LoginInteractor())
+    private val presenter = LoginPresenter(
+        this,
+        LoginInteractor()
+    )
 
     var dialog: LoadingDialog? = null
 

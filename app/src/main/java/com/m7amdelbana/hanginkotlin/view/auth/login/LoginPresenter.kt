@@ -1,4 +1,4 @@
-package com.m7amdelbana.hanginkotlin.view.auth
+package com.m7amdelbana.hanginkotlin.view.auth.login
 
 class LoginPresenter(var loginView: LoginView?, val loginInteractor: LoginInteractor) :
     LoginInteractor.OnLoginFinishedListener {
