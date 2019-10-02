@@ -41,14 +41,14 @@ class RegisterActivity : AppCompatActivity(), APIOperationListener {
                 validateInput()
 
                 loadingDialog!!.show()
-                // -------- Face Request --------
+                // -------- Fake Request --------
                 AuthRepository.register(
                     REQUEST_REGSITER,
                     SignForm(
                         firstName = "Mohamed",
                         lastName = "Elbana",
                         email = "m7amdelbana1234567@gmail.com",
-                        phone = "01149336618",
+                        phone = "011111111111",
                         password = "123456"
                     ), this
                 )
